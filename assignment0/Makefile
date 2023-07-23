@@ -12,9 +12,9 @@ SRCS 	 	= main.cpp \
 
 LIBS            = -lm 
 CC		= g++
-INCLUDE 	= -I/usr/include 
+INCLUDE 	= -I/usr/include -I../headers
 EXE 	  	= ifs
-OBJS =  $(SRCS:.C=.o)
+OBJS =  $(SRCS:.cpp=.o)
 
 # ===============================================================
 # targets
@@ -35,8 +35,8 @@ clean:
 $(EXE): $(OBJS)
 	$(CC) -o $@ $(OBJS) $(LIBS)
 
-.C.o:
-	$(CC) $< -c -o $@
+.cpp.o:
+	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
 
 # ===============================================================
 

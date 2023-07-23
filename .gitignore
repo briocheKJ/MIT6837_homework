@@ -1,0 +1,17 @@
+.vscode
+.DS_Store
+assignment*/Makefile.depend
+
+assignment0/ifs
+assignment1/raytracer
+assignment2/raytracer
+assignment3/raytracer
+assignment4/raytracer
+assignment5/raytracer
+
+assignment*/*.o
+
+headers/*.o
+
+mit6837
+
