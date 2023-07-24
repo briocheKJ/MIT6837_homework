@@ -1,0 +1,48 @@
+# Simple Makefile for 6.837 assignment 0
+# for g++ on linux platforms
+
+# ===============================================================
+
+SRCS 	 	= main.cpp \
+		  ../headers/matrix.cpp \
+		  ../headers/image.cpp \
+		  scene_parser.cpp \
+		  ../headers/Object3D/sphere.cpp \
+		  ../headers/orthographicCamera.cpp \
+		  ../headers/Object3D/group.cpp
+
+# ===============================================================
+
+LIBS            = -lm 
+CC		= g++
+INCLUDE 	= -I/usr/include -I../headers
+EXE 	  	= raytracer
+OBJS =  $(SRCS:.cpp=.o)
+
+# ===============================================================
+# targets
+
+.PHONY: all depend clean
+
+all: depend $(EXE) 
+
+depend:
+	$(CC) -E -M $(INCLUDE) $(SRCS) > Makefile.depend
+
+clean: 
+	rm -f *~ *bak *.o  $(EXE) Makefile.depend
+
+# ===============================================================
+# compilation rules
+
+$(EXE): $(OBJS)
+	$(CC) -o $@ $(OBJS) $(LIBS)
+
+.cpp.o:
+	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
+
+# ===============================================================
+
+-include Makefile.depend
+
+# DO NOT DELETE
