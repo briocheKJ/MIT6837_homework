@@ -38,6 +38,12 @@ public:
   void SetPixel(int x, int y, const Vec3f &color) {
     assert(x >= 0 && x < width);
     assert(y >= 0 && y < height);
+    assert(color[0]>=0);
+    assert(color[0]<=1);
+    assert(color[1]>=0);
+    assert(color[1]<=1);
+    assert(color[2]>=0);
+    assert(color[2]<=1);
     data[y*width + x] = color; }
 
   // ===========

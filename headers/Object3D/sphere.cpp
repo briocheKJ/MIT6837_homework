@@ -34,9 +34,18 @@ bool Sphere::intersect(const Ray &r, Hit &h, float tmin)
         t=t2;
     else t=t1;
     if(t<tmin)return false;
+    Vec3f n=r.pointAtParameter(t)-center;
+    assert(r.getDirection().Dot3(r.getDirection())<=1.001);
+    n.Normalize();
+    //cout<<t<<endl;
+    //cout<<r.getOrigin();
+    //cout<<n<<endl;cout<<r.pointAtParameter(t)<<endl;exit(0);
     if(t<h.getT()||h.getMaterial()==NULL)
-        h.set(t,material,r);
+    {
+        h.set(t, material, n, r);
+        return true;
+    }
+    return false;
     //cout<<proj<<" "<<half_xian<<endl;
     //cout<<"!"<<endl;
-    return true;
 }
