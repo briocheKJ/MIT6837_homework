@@ -42,6 +42,12 @@ int main(int argc,char * argv[])
     // ./raytracer -input in/scene2_08_cube.txt -size 200 200 -output out/output2_08.tga
     // ./raytracer -input in/scene2_09_bunny_200.txt -size 200 200 -output out/output2_09.tga -normals a.tga
     // ./raytracer -input in/scene2_10_bunny_1k.txt -size 200 200 -output out/output2_10.tga
+    // ./raytracer -input in/scene2_11_squashed_sphere.txt -size 200 200 -output out/output2_11.tga -normals out/normals2_11.tga
+    // ./raytracer -input in/scene2_12_rotated_sphere.txt -size 200 200 -output out/output2_12.tga -normals out/normals2_12.tga
+    // ./raytracer -input in/scene2_13_rotated_squashed_sphere.txt -size 200 200 -output out/output2_13.tga -normals out/normals2_13.tga
+    // ./raytracer -input in/scene2_14_axes_cube.txt -size 200 200 -output out/output2_14.tga
+    // ./raytracer -input in/scene2_15_crazy_transforms.txt -size 200 200 -output out/output2_15.tga
+    // ./raytracer -input in/scene2_16_t_scale.txt -size 200 200 -output out/output2_16.tga -depth 2 7 out/depth2_16.tga
 
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i],"-input")) {

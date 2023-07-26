@@ -38,7 +38,7 @@ public:
 private: 
 
   // REPRESENTATION
-  float t;
+  float t=0;
   Material *material;
   Vec3f normal;
   Vec3f intersectionPoint;

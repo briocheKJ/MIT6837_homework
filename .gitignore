@@ -13,5 +13,7 @@ assignment*/*.o
 
 headers/*.o
 
+headers/Object3D/*.o
+
 mit6837
 

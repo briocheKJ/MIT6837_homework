@@ -35,7 +35,7 @@ bool Sphere::intersect(const Ray &r, Hit &h, float tmin)
     else t=t1;
     if(t<tmin)return false;
     Vec3f n=r.pointAtParameter(t)-center;
-    assert(r.getDirection().Dot3(r.getDirection())<=1.001);
+    //assert(r.getDirection().Dot3(r.getDirection())<=1.001);
     n.Normalize();
     //cout<<t<<endl;
     //cout<<r.getOrigin();
