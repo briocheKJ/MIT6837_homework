@@ -3,11 +3,7 @@
 assignment*/Makefile.depend
 
 assignment0/ifs
-assignment1/raytracer
-assignment2/raytracer
-assignment3/raytracer
-assignment4/raytracer
-assignment5/raytracer
+assignment*/raytracer
 
 assignment*/*.o
 
@@ -17,3 +13,4 @@ headers/Object3D/*.o
 
 mit6837
 
+assignment*/Object3D/*.o
