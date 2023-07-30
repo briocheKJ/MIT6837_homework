@@ -65,6 +65,25 @@
   - 透明长方形的那几个样例依然有问题，暂时查不出，卡了很久很久。光线应该是正确的，颜色和题目给的示例有偏差。但是其他的折射样例都没问题。
   - 折射率需要特殊处理，如果折射率不是1就把下一次折射进入的材质的折射率写成1，因为无论是射入还是射出，交点的材质都是物体的材质。这个问题调了很久才发现。
   - 仍然不清楚折射（或者反射）的颜色损失应该是多少，暂时是把reflective Color的模长设为了损失率。
+  - 命令行参数单独抽出来存储在一个类的静态空间
 - 学习到lecture9
 
 #### 7.29
+- 写作业5
+  - 完成了球体的insertIntoGrid
+  - 可视化体素
+  - 完成MarchingInfo的编写，用于获得光线传播方向的下一个cell
+  - 编写了grid类的initializeRayMarch用于初始化MarchingInfo，获取第一个cell的信息
+  - 编写了grid类的intersect并测试确保能渲染出正确的体素可视化图像，能通过第一和第二个场景
+  - 注意用体素判断相交的时候要从grid开始判断intersect，而不是从最高级的group。
+
+#### 7.30
+- 完成作业5
+  - 可视化光线的路径，并可视化每个cell与其相交的图形个数，前者在grid的intersect处添加```void RayTree::AddHitCellFace(Vec3f a, Vec3f b, Vec3f c, Vec3f d, Vec3f normal, Material *m);
+  void RayTree::AddEnteredFace(Vec3f a, Vec3f b, Vec3f c, Vec3f d, Vec3f normal, Material *m);```后者调用Hit的Set函数修改material未对应频率代表的颜色
+  - 完成三角形的体素化代码编写，通过兔子的场景
+  - 修复三角形平行坐标轴时没有厚度的bug，通过场景3
+  - 完成transform的体素化代码（相当于累积前面的transform），在三角形和球体的显示调用Object3D::insertIntoGrid方法，把带transform的物体的insertintoGrid委托给这个函数实现（球体直接用整个包围盒）
+  - 改进Transform的包围盒的求法，避免课件出现的旋转后的三角形包围盒过大的问题
+  - 通过全部测试用例
+- 写作业6
